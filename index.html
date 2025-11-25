@@ -1,49 +1,120 @@
-
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: lightpink;
-      padding: 50px;
-    }
-    h1 {
-      color: #333;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .projects {
-      margin-top: 20px;
-    }
-  <link rel = "stylesheet" type = "text/css" href = "portfoliostyles.css">
+<html>
+  <head>
+    <title>Sreya Portfolio</title>
+<style>
+  body{
+    margin: 0;
+     background: url("https://i.imgur.com/0Y8FQ0U.jpeg");
+    background-size: cover;
+    font-family: "Courier New", monospace;
+    color: black;
+  }
 
-  </style>
-</head>
-<body>
-  <h1>Hello, I'm Sreya</h1>
-  <p>Welcome to my portfolio website 🚀</p>
+  /*desktop icons*/
+  .icon{
+    width: 70px;
+    text-align:center;
+    margin: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+  }
+  .icon img{
+    width: 50px;
+    display: block;
+    margin: 0 auto 5px;
+  }
+  /*retro window style*/
+  .window {
+    width: 400px;
+    background: #e6e6e6;
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0px #000;
+    position: absolute;
+    top:100px;
+    left:100px;
+    display:none;
+  }
 
-  <div class="projects">
-    <h2>My Projecs</h2>
-    <ul>
-      <li>Project 1 — <a href="https://github.com/Sreya-Veera/practice-python/blob/ad6272e8776fdf58b351c9faa0559e91cc0e7a48/main.py">Github Link</a></li>
-      <li> Project 2 - <a href = 'https://drive.google.com/file/d/1r_Q3cS9Jm4_aMYnMOtdbyO5wWczUyuAM/view?usp=sharing'> Poster Link</a></li>
-     
-    </ul>
-  </div>
+  .window-header{
+    background: navy;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    cursor: move;
 
-  <h1> Connect with me: </h1>
-    <a href="https://github.com/Sreya-Veera" target="_blank">GitHub</a> |
-    <a href="https://www.linkedin.com/in/sreya-225072274/" target="_blank">LinkedIn</a>
-  </p>
-</body>
-</html>
+  }
+
+  .windown-content{
+    padding: 10px;
+  }
+
+  /*taskbar*/
+  .taskbar{
+    position:fixed;
+    bottom:0;
+    width: 100%;
+    height:35px;
+    background:#c0c0c0;
+    border-top: 3px solid #000;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+
+  }
+  
+</style>
+    </head>
+    <body>
+    <div class = "icon" onclick = "openWindow('aboutMeWindow')">
+      <img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="About Me Icon">
+      <div>About Me</div>
+    </body>
+
+    <div class  = "icon" onclick = "openWindow('projectswindow')">
+      <img src="https://img.icons8.com/ios-filled/50/000000/folder-invoices--v1.png" alt="Projects Icon">
+      <div>Projects</div>
+    </div>
+
+    <div class = "icon" onclick = "openWindow('contactWindow')">
+      <img src="https://img.icons8.com/ios-filled/50/000000/contacts.png" alt="Contact Icon">
+      <div>Contact</div>
+    </div>
+    
+    <div id = "aboutMeWindow" class = "window">
+      <div class = "window-header" onclick="bringToFront('aboutMeWindow')">About Me</div>
+      <div class = "window-content">
+        <p>Hello! I'm Sreya, a passionate developer and tech enthusiast. Welcome to my portfolio!</p>
+      </div>
+
+      </div>
+
+      <div id="projects-window" class="window">
+  <div class="window-header">Projects</div>
+  <div class="window-content">
+    <p>List your projects here!</p>
+
+      </div>
+
+      <div id=" contact-window" class = "window">
+  <div class="window-header">Contact</div>
+  <div class="window-content">
+    <p>Github | Linkeldn</p>
+      </div>
+    </div>
+
+    <div class="taskbar">
+      <div class="taskbar-item" onclick="openWindow('aboutMeWindow')">About Me</div>
+      <div class="taskbar-item" onclick="openWindow('projectsWindow')">Projects</div>
+      <div class="taskbar-item" onclick="openWindow('contactWindow')">Contact</div>
+    </div>
+
+    <script>
+      function openWindow(id){
+        document.getElementById(id).style.display = "block";
+
+      }
+      </script>
+  </body>
+      </html>
